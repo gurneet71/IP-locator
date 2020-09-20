@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locate IP</title>
+    <link rel="stylesheet" href="main.css">
+    
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+<body>
+    <div id="content" class='content'>
+        <h1>IP Address Tracker</h1>
+        <form action="submit">
+            <input type="text" name="search" id="search">
+            <button type="submit" id='btn'><img src="images/icon-arrow.svg" alt=""></button>
+        </form>
+        
+        <div id="result" class='result'>
+            <div id="ip-address">
+                <h2>IP Address</h2>
+                <p>-</p>
+            </div>
+            <div id="location">
+                <h2>Location</h2>
+                <p>-</p>
+            </div>
+            <div id="timezone">
+                <h2>TimeZone</h2>
+                <p>-</p>
+            </div>
+            <div id="ISP">
+                <h2>ISP</h2>
+                <p>-</p>
+            </div>
+        </div>
+    </div>
+    <div id='map' style='width: 100%; height:calc(100vh - 200px);'></div>
+
+
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <script src='app.js'></script>
+</body>
+</html>
