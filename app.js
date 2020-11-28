@@ -5,7 +5,7 @@ var result = document.getElementById('result');
 var xhr = new XMLHttpRequest();
 function loadData(callback,callback1){
     var val = inp.value;
-    xhr.open('GET',`https://geo.ipify.org/api/v1?apiKey=at_21c1HISxg59YfU2sdf9yVmDo8qN2x&ipAddress=${val}`,true);
+    xhr.open('GET',`https://cors-anywhere.herokuapp.com/https://geo.ipify.org/api/v1?apiKey=at_21c1HISxg59YfU2sdf9yVmDo8qN2x&ipAddress=${val}`,true);
     xhr.onload = function(){
         if(this.status == 200){
             var data = JSON.parse(this.responseText);
