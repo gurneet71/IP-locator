@@ -3,12 +3,20 @@ var btn = document.getElementById('btn');
 var result = document.getElementById('result');
 
 var xhr = new XMLHttpRequest();
+
 function loadData(callback,callback1){
     var val = inp.value;
-    xhr.open('GET',`https://cors-anywhere.herokuapp.com/https://geo.ipify.org/api/v1?apiKey=at_21c1HISxg59YfU2sdf9yVmDo8qN2x&ipAddress=${val}`,true);
+    var url = `https://geo.ipify.org/api/v1?apiKey=at_21c1HISxg59YfU2sdf9yVmDo8qN2x&ipAddress=${val}`;
+    var res = encodeURI(url); 
+    xhr.open('GET',`https://api.allorigins.win/get?url=${res}`,true);
+
+    // xhr.setRequestHeader("Access-Control-Allow-Origin", `*`);
+    // xhr.withCredentials = true;
+
     xhr.onload = function(){
         if(this.status == 200){
-            var data = JSON.parse(this.responseText);
+            var res = JSON.parse(this.responseText);
+            var data = JSON.parse(res.contents);
             callback(data);
             callback1(data.isp,data.location.lat,data.location.lng);
         }
@@ -17,6 +25,8 @@ function loadData(callback,callback1){
 }
 
 function resData(data){
+    // console.log()
+    
     var ip = document.getElementById('ip-address');
     var ipdata = data.ip;
     ip.lastElementChild.innerHTML = ipdata;
