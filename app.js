@@ -6,17 +6,16 @@ var xhr = new XMLHttpRequest();
 
 function loadData(callback,callback1){
     var val = inp.value;
-    var url = `https://geo.ipify.org/api/v1?apiKey=at_21c1HISxg59YfU2sdf9yVmDo8qN2x&ipAddress=${val}`;
-    var res = encodeURI(url); 
-    xhr.open('GET',`https://api.allorigins.win/get?url=${res}`,true);
-
+    var url = ``;
+    xhr.open('GET',`https://hidden-beach-73186.herokuapp.com/https://geo.ipify.org/api/v1?apiKey=at_21c1HISxg59YfU2sdf9yVmDo8qN2x&ipAddress=${val}`,true);
+    xhr.setRequestHeader("content-type","application/json");
     // xhr.setRequestHeader("Access-Control-Allow-Origin", `*`);
     // xhr.withCredentials = true;
 
     xhr.onload = function(){
         if(this.status == 200){
-            var res = JSON.parse(this.responseText);
-            var data = JSON.parse(res.contents);
+            var data = JSON.parse(this.responseText);
+    
             callback(data);
             callback1(data.isp,data.location.lat,data.location.lng);
         }
